@@ -6,7 +6,6 @@ let plumber = require("gulp-plumber");
 let postcss = require("gulp-postcss");
 let autoprefixer = require("autoprefixer");
 let minify = require("gulp-csso");
-let pump = require("pump");
 let uglify = require('gulp-uglify-es').default;
 let imagemin = require("gulp-imagemin");
 let webp = require("gulp-webp");
