@@ -52,17 +52,17 @@
       foodElement.querySelector('.food-type__header-ingredient').
         textContent = data[i].ingredientString;
 
-      foodElement.querySelector('#portions .food-type__quantity').
+      foodElement.querySelector('#portions').
         textContent = data[i].portionsQuantity;
 
       foodElement.querySelector('#gifts .food-type__quantity').
         textContent = getGiftQuantity(data[i]);
 
-      foodElement.querySelector('#gifts .food-type__text').textContent = getGiftString(data[i]);
+      foodElement.querySelector('#gifts .food-type__text').textContent = getGiftString(data[i]) + ' в подарок';
 
       setCommentary(foodElement, data[i]);
 
-      foodElement.querySelector('.food-type__mass-value').
+      foodElement.querySelector('.food-type__mass-value--quantity').
         textContent = data[i].mass;
 
       fragment.appendChild(foodElement);

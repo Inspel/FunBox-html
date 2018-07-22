@@ -9,11 +9,11 @@
 </head>
 <body>
 <main class="cat-food">
-    <h1 class="cat-food__header">Ты сегодня покормил кота?</h1>
-    <div class="cat-food__nojs">
-      <p class="cat-food__nojs-text">Ой! Без работающего JavaScript твой кот может остаться голодным!</p>
-    </div>
-    <ul class="cat-food__list hidden"></ul>
+  <h1 class="cat-food__header">Ты сегодня покормил кота?</h1>
+  <div class="cat-food__nojs">
+    <p class="cat-food__nojs-text">Ой! Без работающего JavaScript твой кот может остаться голодным!</p>
+  </div>
+  <ul class="cat-food__list hidden"></ul>
 </main>
 
 <template id="food-type-template">
@@ -21,12 +21,12 @@
     <div class="food-type__wrapper">
       <h2 class="food-type__header">
         <span class="food-type__header-intro">Сказочное заморское яство</span>
-        Нямушка
+        <span class="food-type__header-name">Нямушка</span>
         <span class="food-type__header-ingredient"></span>
       </h2>
-      <p class="food-type__info" id="portions">
-        <span class="food-type__quantity"></span>
-        <span class="food-type__text">&nbsp;порций</span>
+      <p class="food-type__info">
+        <span class="food-type__quantity" id="portions"></span>
+        <span class="food-type__text">порций</span>
       </p>
       <p class="food-type__info" id="gifts">
         <span class="food-type__quantity"></span>
@@ -34,13 +34,13 @@
       </p>
       <p class="food-type__info" id="commentary"></p>
       <div class="food-type__mass">
-        <span class="food-type__mass-value"></span>
-        <span class="food-type__mass-units">кг</span>
+        <span class="food-type__mass-value food-type__mass-value--quantity"></span>
+        <span class="food-type__mass-value">кг</span>
       </div>
-      <p class="food-type__bottom-text">
-        Чего сидишь? Порадуй котэ,&nbsp;<a href="#" class="food-type__buy-link">купи</a>
-      </p>
     </div>
+    <p class="food-type__bottom-text">
+      Чего сидишь? Порадуй котэ,&nbsp;<a href="#" class="food-type__buy-link">купи</a>
+    </p>
   </li>
 </template>
 

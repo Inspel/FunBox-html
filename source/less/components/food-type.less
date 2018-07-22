@@ -1,0 +1,82 @@
+.food-type {
+  width: 320px;
+}
+
+.food-type__wrapper {
+  min-height: 461px;
+  position: relative;
+  padding-top: 10px;
+  padding-left: 44px;
+  padding-right: 44px;
+  background-color: white;
+  border: 4px solid @color-default;
+  border-radius: 12px;
+}
+
+.food-type__header {
+  margin: 0;
+  margin-bottom: 13px;
+}
+
+.food-type__header-intro {
+  font-size: 16px;
+  line-height: 2;
+  font-weight: normal;
+  color: #666666;
+}
+
+.food-type__header-name {
+  margin-left: -2px;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: bold;
+  color: black;
+}
+
+.food-type__header-ingredient {
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.food-type__info {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: #666666;
+}
+
+.food-type__quantity {
+  font-weight: bold;
+}
+
+.food-type__mass {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 10px;
+  right: 11px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: @color-default;
+}
+
+.food-type__mass-value {
+  font-size: 21px;
+  line-height: 20px;
+  color: white;
+
+  &--quantity {
+    font-size: 42px;
+    line-height: 42px;
+  }
+}
+
+.food-type__bottom-text {
+  text-align: center;
+  color: white;
+}
+
