@@ -2,13 +2,15 @@
   width: 471px;
   margin: 0 auto;
   padding-top: 38px;
+  padding-bottom: 38px;
 }
 
 .cat-food__header {
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 23px;
   font-size: 36px;
   line-height: 1.2;
+  font-weight: 200;
   text-align: center;
   font-family: "Exo2 Thin", "Arial", sans-serif;
   color: white;
@@ -19,4 +21,31 @@
   padding: 0;
   width: 320px;
   list-style: none;
+}
+
+@media (min-width: 768px) {
+  .cat-food {
+    width: 768px;
+  }
+
+  .cat-food__list {
+    display: flex;
+    width: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1180px) {
+  .cat-food {
+    width: auto;
+  }
+
+  .cat-food__list {
+    display: flex;
+    padding-left: 6.25%;
+    padding-right: 6.25%;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
 }
