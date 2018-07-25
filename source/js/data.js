@@ -1,28 +1,45 @@
-`use strict`;
+'use strict';
 
 (function () {
-  window.data = [
+  window.info = [
     {
-      ingredientString: `с фуа-гра`,
-      portionsQuantity: `10`,
-      giftsQuantity: `1`,
-      mass: `0,5`,
-      description: `Печень утки разварная с артищоками.`
+      ingredientString: 'с фуа-гра',
+      portionsQuantity: '10',
+      giftsQuantity: '1',
+      mass: '0,5',
+      description: 'Печень утки разварная с артищоками.'
     },
     {
-      ingredientString: `с рыбой`,
-      portionsQuantity: `40`,
-      giftsQuantity: `2`,
-      mass: `2`,
-      description: `Головы щучьи с чесноком да свежайшая сёмгушка.`
+      ingredientString: 'с рыбой',
+      portionsQuantity: '40',
+      giftsQuantity: '2',
+      mass: '2',
+      description: 'Головы щучьи с чесноком да свежайшая сёмгушка.'
     },
     {
-      ingredientString: `с курой`,
-      portionsQuantity: `100`,
-      giftsQuantity: `5`,
-      commentary: `Заказчик доволен`,
-      mass: `5`,
-      description: `Филе из цыплят с трюфелями в бульоне.`
+      ingredientString: 'с курой',
+      portionsQuantity: '100',
+      giftsQuantity: '5',
+      commentary: 'Заказчик доволен',
+      mass: '5',
+      description: 'Филе из цыплят с трюфелями в бульоне.'
     }
   ];
-})();
+
+  window.states = {
+    defaultHover: {
+      color: '#2ea8e5'
+    },
+
+    selected: {
+      color: '#d91667',
+      description: true,
+    },
+
+    selectedHover: {
+      color: '#e62e7a',
+      description: true,
+      upperText: 'Котэ не одобряет?'
+    }
+  };
+}());
