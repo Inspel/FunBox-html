@@ -65,6 +65,11 @@
       foodElement.querySelector('.food-type__mass-value--quantity').
         textContent = data[i].mass;
 
+      if (data[i].disabled) {
+        foodElement.classList.add('js-disabled');
+        foodElement.querySelector('.food-type__bottom-text').textContent = `Печалька, ${ data[i].ingredientString } закончился.`
+      }
+
       fragment.appendChild(foodElement);
     }
     return fragment;
