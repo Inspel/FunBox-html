@@ -18,7 +18,6 @@
     "gulp-postcss": "7.0.x",
     "gulp-rename": "^1.2.2",
     "gulp-uglify-es": "^1.0.4",
-    "gulp-webp": "^3.0.0",
     "run-sequence": "^2.2.1",
     "stylelint": "9.2.x",
     "stylelint-config-htmlacademy": "0.1.x"

@@ -8,7 +8,6 @@ let autoprefixer = require("autoprefixer");
 let minify = require("gulp-csso");
 let uglify = require('gulp-uglify-es').default;
 let imagemin = require("gulp-imagemin");
-let webp = require("gulp-webp");
 let rename = require("gulp-rename");
 let del = require("del");
 let server = require("browser-sync").create();
@@ -37,18 +36,13 @@ gulp.task("compress", function () {
 });
 
 gulp.task("images", function () {
-  return gulp.src("source/img/**/*.{jpg, png}")
+  return gulp.src("source/img/**/*.{jpg,svg,png}")
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}),
       imagemin.jpegtran({progressive: true}),
+      imagemin.svgo()
     ]))
     .pipe(gulp.dest("source/img"));
-});
-
-gulp.task("webp", function () {
-  return gulp.src("source/img/pic-*.{png,jpg}")
-    .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("build/img"));
 });
 
 gulp.task("html", function () {
@@ -59,8 +53,8 @@ gulp.task("html", function () {
 gulp.task("copy", function () {
   return gulp.src([
     "source/css/*.css",
-    "source/fonts/*.otf",
-    "source/img/*.{jpg,png}"
+    "source/fonts/*",
+    "source/img/*.{jpg,svg,png}"
   ], {
     base: "source"
   })
@@ -76,7 +70,6 @@ gulp.task("build", function (done) {
     "clean",
     "html",
     "images",
-    "webp",
     "copy",
     "style",
     "compress",

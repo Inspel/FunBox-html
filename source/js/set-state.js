@@ -1,8 +1,5 @@
-'use strict';
 
 (function () {
-
-  const foodPacks = document.querySelectorAll('.food-type:not(.js-disabled)');
 
   let borderElement;
   let massElement;
@@ -23,13 +20,14 @@
 
   const setColor = function (pack, state) {
     borderElement.setAttribute('stroke', state.color);
-    massElement.style = `background: ${ state.color }`;
+    massElement.style.cssText = 'background: ' + state.color;
     if(buttonElement) {
-      buttonElement.style = `color: ${ state.color }`;
+      buttonElement.style.cssText = 'color: ' + state.color;
     }
   };
 
-  const descriptionTemplate = document.querySelector('#food-type-template').content.querySelector('.food-type__bottom-text');
+  const template = document.querySelector('#food-type-template');
+  const descriptionTemplate = template.content.querySelector('.food-type__bottom-text');
   const setDescription = function (pack, state) {
     if (state.description === 'selected') {
       let foodPackIngredientString = (pack.querySelector('.food-type__header-ingredient').textContent);
@@ -74,7 +72,7 @@
   const onPackMouseOutSelected = function () {
     let headerIntro = this.querySelector('.food-type__header-intro');
     headerIntro.textContent = window.states.selectedHover.upperText;
-    headerIntro.style = `color: ${ window.states.selectedHover.color }`;
+    headerIntro.style.cssText = 'color: ' + window.states.selectedHover.color;
     setColor(this, window.states.selectedHover);
   };
 
@@ -99,6 +97,8 @@
       this.classList.toggle('js-selected');
     }
   };
+
+  let foodPacks = Array.prototype.slice.call(document.querySelectorAll('.food-type:not(.js-disabled)'));
 
   foodPacks.forEach(function (currentElement) {
     currentElement.addEventListener('mouseover', onPackMouseOverDefault);

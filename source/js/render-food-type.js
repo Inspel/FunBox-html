@@ -1,8 +1,8 @@
-'use strict';
 
 (function () {
 
-  document.querySelector('.cat-food__nojs').remove();
+  const noJsInfo = document.querySelector('.cat-food__nojs');
+  noJsInfo.parentNode.removeChild(noJsInfo);
 
   const catFoodListNode = document.querySelector('.cat-food__list');
 
@@ -30,7 +30,7 @@
     if (currentFoodType.giftsQuantity === '1') {
       return ''
     }
-      return currentFoodType.giftsQuantity
+    return currentFoodType.giftsQuantity
   };
 
   const setCommentary = function (element, currentFoodType) {
@@ -38,7 +38,7 @@
     if (currentFoodType.commentary) {
       commentaryNode.textContent = currentFoodType.commentary;
     } else {
-      commentaryNode.remove();
+      commentaryNode.parentNode.removeChild(commentaryNode);
     }
   };
 
@@ -58,16 +58,15 @@
       foodElement.querySelector('.js-gifts .food-type__quantity').
         textContent = getGiftQuantity(data[i]);
 
-      foodElement.querySelector('.js-gifts .food-type__text').textContent = `${ getGiftString(data[i])} в подарок`;
+      foodElement.querySelector('.js-gifts .food-type__text').textContent = getGiftString(data[i]) + ' в подарок';
 
       setCommentary(foodElement, data[i]);
 
-      foodElement.querySelector('.food-type__mass-value--quantity').
-        textContent = data[i].mass;
+      foodElement.querySelector('.food-type__mass-value--quantity').textContent = data[i].mass;
 
       if (data[i].disabled) {
         foodElement.classList.add('js-disabled');
-        foodElement.querySelector('.food-type__bottom-text').textContent = `Печалька, ${ data[i].ingredientString } закончился.`
+        foodElement.querySelector('.food-type__bottom-text').textContent = 'Печалька, ' + data[i].ingredientString  + ' закончился.';
       }
 
       fragment.appendChild(foodElement);

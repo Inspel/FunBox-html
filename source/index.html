@@ -8,46 +8,46 @@
   <title>FunBox HTML/CSS test</title>
 </head>
 <body>
-<main class="cat-food">
-  <form class="cat-food-form">
+<main class="main-wrapper">
+  <section class="cat-food">
     <h1 class="cat-food__header">Ты сегодня покормил кота?</h1>
     <div class="cat-food__nojs">
       <p class="cat-food__nojs-text">Ой! Без работающего JavaScript твой кот может остаться голодным!</p>
     </div>
     <ul class="cat-food__list hidden">
     </ul>
-  </form>
+  </section>
 </main>
 
 <template id="food-type-template">
   <li class="cat-food__type food-type">
 
-      <div class="food-type__content-wrapper">
-        <label class="food-type__header">
-          <input class="visually-hidden" name="">
-          <span class="food-type__header-intro">Сказочное заморское яство</span>
-          <span class="food-type__header-name">Нямушка</span>
-          <span class="food-type__header-ingredient"></span>
-        </label>
-        <p class="food-type__info">
-          <span class="food-type__quantity js-portions"></span>
-          <span class="food-type__text">порций</span>
-        </p>
-        <p class="food-type__info js-gifts">
-          <span class="food-type__quantity"></span>
-          <span class="food-type__text"></span>
-        </p>
-        <p class="food-type__info js-commentary"></p>
+    <div class="food-type__content-wrapper">
+      <label class="food-type__header">
+        <input class="visually-hidden" name="">
+        <span class="food-type__header-intro">Сказочное заморское яство</span>
+        <span class="food-type__header-name">Нямушка</span>
+        <span class="food-type__header-ingredient"></span>
+      </label>
+      <p class="food-type__info">
+        <span class="food-type__quantity js-portions"></span>
+        <span class="food-type__text">порций</span>
+      </p>
+      <p class="food-type__info js-gifts">
+        <span class="food-type__quantity"></span>
+        <span class="food-type__text"></span>
+      </p>
+      <p class="food-type__info js-commentary"></p>
 
-        <div class="food-type__mass">
-          <span class="food-type__mass-value food-type__mass-value--quantity"></span>
-          <span class="food-type__mass-value">кг</span>
-        </div>
+      <div class="food-type__mass">
+        <span class="food-type__mass-value food-type__mass-value--quantity"></span>
+        <span class="food-type__mass-value">кг</span>
+      </div>
 
-    <svg class="food-type__border" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 484" preserveAspectRatio="none">
-      <path fill-rule="evenodd" stroke-width="4px" stroke-linecap="butt" stroke-linejoin="miter"
-            d="M310.000,482.000 L14.000,482.000 C7.373,482.000 2.000,476.627 2.000,470.000 L2.000,45.000 L45.000,2.000 L310.000,2.000 C316.627,2.000 322.000,7.372 322.000,14.000 L322.000,470.000 C322.000,476.627 316.627,482.000 310.000,482.000 Z"/>
-    </svg>
+      <svg class="food-type__border" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 484" preserveAspectRatio="none">
+        <path fill-rule="evenodd" stroke-width="4px" stroke-linecap="butt" stroke-linejoin="miter"
+              d="M310.000,482.000 L14.000,482.000 C7.373,482.000 2.000,476.627 2.000,470.000 L2.000,45.000 L45.000,2.000 L310.000,2.000 C316.627,2.000 322.000,7.372 322.000,14.000 L322.000,470.000 C322.000,476.627 316.627,482.000 310.000,482.000 Z"></path
+      </svg>
 
     </div>
 
@@ -56,10 +56,11 @@
     </p>
   </li>
 </template>
-
+<script src="./js/polyfill.min.js"></script>
+<script src="./js/template-polyfill.js"></script>
 <script src="./js/data.js"></script>
 <script src="./js/render-food-type.js"></script>
-<script src="js/set-state.js"></script>
+<script src="./js/set-state.js"></script>
 
 </body>
 </html>
