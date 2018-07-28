@@ -1,20 +1,20 @@
-
+'use strict';
 (function () {
 
-  const noJsInfo = document.querySelector('.cat-food__nojs');
+  var noJsInfo = document.querySelector('.cat-food__nojs');
   noJsInfo.parentNode.removeChild(noJsInfo);
 
-  const catFoodListNode = document.querySelector('.cat-food__list');
+  var catFoodListNode = document.querySelector('.cat-food__list');
 
   catFoodListNode.classList.remove('hidden');
 
-  const foodElementTemplate = document.querySelector('#food-type-template');
+  var foodElementTemplate = document.querySelector('#food-type-template');
 
-  const data = window.info;
+  var data = window.info;
 
-  const getGiftString = function (currentFoodType) {
-    const giftsQuantityLastSymbol = currentFoodType.giftsQuantity.slice(-1);
-    switch(true) {
+  var getGiftString = function (currentFoodType) {
+    var giftsQuantityLastSymbol = currentFoodType.giftsQuantity.slice(-1);
+    switch (true) {
       case giftsQuantityLastSymbol === '1':
         return 'мышь';
 
@@ -26,15 +26,15 @@
     }
   };
 
-  const getGiftQuantity = function (currentFoodType) {
+  var getGiftQuantity = function (currentFoodType) {
     if (currentFoodType.giftsQuantity === '1') {
-      return ''
+      return '';
     }
-    return currentFoodType.giftsQuantity
+    return currentFoodType.giftsQuantity;
   };
 
-  const setCommentary = function (element, currentFoodType) {
-    let commentaryNode = element.querySelector('.js-commentary');
+  var setCommentary = function (element, currentFoodType) {
+    var commentaryNode = element.querySelector('.js-commentary');
     if (currentFoodType.commentary) {
       commentaryNode.textContent = currentFoodType.commentary;
     } else {
@@ -42,12 +42,12 @@
     }
   };
 
-  const template = foodElementTemplate.content.querySelector('.food-type');
-  const createFoodElementsFragment = function () {
-    let fragment = document.createDocumentFragment();
+  var template = foodElementTemplate.content.querySelector('.food-type');
+  var createFoodElementsFragment = function () {
+    var fragment = document.createDocumentFragment();
 
-    for (let i = 0; i < data.length; i++) {
-      let foodElement = template.cloneNode(true);
+    for (var i = 0; i < data.length; i++) {
+      var foodElement = template.cloneNode(true);
 
       foodElement.querySelector('.food-type__header-ingredient').
         textContent = data[i].ingredientString;
@@ -74,7 +74,7 @@
     return fragment;
   };
 
-  const FoodElementsFragment = createFoodElementsFragment();
+  var FoodElementsFragment = createFoodElementsFragment();
   catFoodListNode.appendChild(FoodElementsFragment);
 
 })();

@@ -1,59 +1,60 @@
+'use strict';
 
 (function () {
 
-  let borderElement;
-  let massElement;
-  let buttonElement;
+  var borderElement;
+  var massElement;
+  var buttonElement;
 
-  const getColoredNodes = function (pack) {
+  var getColoredNodes = function (pack) {
     borderElement = pack.querySelector('.food-type__border path');
     massElement = pack.querySelector('.food-type__mass');
     buttonElement = pack.querySelector('.food-type__buy-button');
   };
-  const removeStateColor = function () {
+  var removeStateColor = function () {
     borderElement.removeAttribute('stroke');
     massElement.removeAttribute('style');
-    if(buttonElement) {
+    if (buttonElement) {
       buttonElement.removeAttribute('style');
     }
   };
 
-  const setColor = function (pack, state) {
+  var setColor = function (pack, state) {
     borderElement.setAttribute('stroke', state.color);
     massElement.style.cssText = 'background: ' + state.color;
-    if(buttonElement) {
+    if (buttonElement) {
       buttonElement.style.cssText = 'color: ' + state.color;
     }
   };
 
-  const template = document.querySelector('#food-type-template');
-  const descriptionTemplate = template.content.querySelector('.food-type__bottom-text');
-  const setDescription = function (pack, state) {
+  var template = document.querySelector('#food-type-template');
+  var descriptionTemplate = template.content.querySelector('.food-type__bottom-text');
+  var setDescription = function (pack, state) {
     if (state.description === 'selected') {
-      let foodPackIngredientString = (pack.querySelector('.food-type__header-ingredient').textContent);
-      let foodPackData = window.info.find(function (element) {
+      var foodPackIngredientString = (pack.querySelector('.food-type__header-ingredient').textContent);
+      var foodPackData = window.info.find(function (element) {
         return element.ingredientString === foodPackIngredientString;
       });
       pack.querySelector('.food-type__bottom-text').textContent = foodPackData.description;
     } else {
-      const defaultDescriptionNode =  descriptionTemplate.cloneNode(true);
+      var defaultDescriptionNode =  descriptionTemplate.cloneNode(true);
       pack.removeChild(pack.querySelector('.food-type__bottom-text'));
       pack.append(defaultDescriptionNode);
     }
   };
 
-  const checkClickableElements = function (event) {
+  var checkClickableElements = function (event) {
     return (event.target === buttonElement || event.target === borderElement)
   };
 
-  const onPackMouseOutDefault = function (event) {
+  var onPackMouseOutDefault = function (event) {
     if (checkClickableElements(event)) {
       removeStateColor();
       this.removeEventListener('mouseout', onPackMouseOutDefault);
     }
   };
 
-  const onPackMouseOverDefault = function (event) {
+  var onPackMouseOverDefault = function (event) {
     getColoredNodes(this);
     if (checkClickableElements(event)) {
       setColor(this, window.states.defaultHover);
@@ -61,22 +62,22 @@
     }
   };
 
-  const onPackMouseOverSelected = function () {
-    let headerIntro = this.querySelector('.food-type__header-intro');
+  var onPackMouseOverSelected = function () {
+    var headerIntro = this.querySelector('.food-type__header-intro');
     headerIntro.textContent = window.states.selected.upperText;
     headerIntro.removeAttribute('style');
     getColoredNodes(this);
     setColor(this, window.states.selected);
   };
 
-  const onPackMouseOutSelected = function () {
-    let headerIntro = this.querySelector('.food-type__header-intro');
+  var onPackMouseOutSelected = function () {
+    var headerIntro = this.querySelector('.food-type__header-intro');
     headerIntro.textContent = window.states.selectedHover.upperText;
     headerIntro.style.cssText = 'color: ' + window.states.selectedHover.color;
     setColor(this, window.states.selectedHover);
   };
 
-  const onPackClick = function (event) {
+  var onPackClick = function (event) {
     getColoredNodes(this);
     if (checkClickableElements(event)) {
       if (this.classList.contains('js-selected')) {
@@ -98,7 +99,7 @@
     }
   };
 
-  let foodPacks = Array.prototype.slice.call(document.querySelectorAll('.food-type:not(.js-disabled)'));
+  var foodPacks = Array.prototype.slice.call(document.querySelectorAll('.food-type:not(.js-disabled)'));
 
   foodPacks.forEach(function (currentElement) {
     currentElement.addEventListener('mouseover', onPackMouseOverDefault);

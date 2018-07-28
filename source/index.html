@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>FunBox HTML/CSS test</title>
 </head>
 <body>
-<main class="main-wrapper">
-  <section class="cat-food">
+<main class="page-content">
+  <section class="page-content__cat-food cat-food">
     <h1 class="cat-food__header">Ты сегодня покормил кота?</h1>
     <div class="cat-food__nojs">
       <p class="cat-food__nojs-text">Ой! Без работающего JavaScript твой кот может остаться голодным!</p>
@@ -21,10 +21,8 @@
 
 <template id="food-type-template">
   <li class="cat-food__type food-type">
-
     <div class="food-type__content-wrapper">
       <label class="food-type__header">
-        <input class="visually-hidden" name="">
         <span class="food-type__header-intro">Сказочное заморское яство</span>
         <span class="food-type__header-name">Нямушка</span>
         <span class="food-type__header-ingredient"></span>
@@ -56,7 +54,7 @@
     </p>
   </li>
 </template>
-<script src="./js/polyfill.min.js"></script>
+<script src="./js/polyfill.js"></script>
 <script src="./js/template-polyfill.js"></script>
 <script src="./js/data.js"></script>
 <script src="./js/render-food-type.js"></script>
