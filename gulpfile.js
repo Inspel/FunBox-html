@@ -54,7 +54,7 @@ gulp.task('html', function () {
 
 gulp.task('copy', function () {
   return gulp.src([
-    'source/css/*.css',
+    'source/css/*.min.css',
     'source/fonts/*',
     'source/img/*.{jpg,svg,png}',
     'source/js/*.js'
