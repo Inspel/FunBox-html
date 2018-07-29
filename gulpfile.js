@@ -31,6 +31,7 @@ gulp.task('compress', function (cb) {
   pump([
       gulp.src('source/js/*.js'),
       uglify(),
+      rename({ suffix: '.min' }),
       gulp.dest('build/js')
     ],
     cb
@@ -57,7 +58,7 @@ gulp.task('copy', function () {
     'source/css/*.min.css',
     'source/fonts/*',
     'source/img/*.{jpg,svg,png}',
-    'source/js/*.js'
+    'source/js//*.min.js'
   ], {
     base: 'source'
   })
