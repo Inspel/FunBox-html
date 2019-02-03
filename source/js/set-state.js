@@ -93,7 +93,7 @@
         this.removeEventListener('mouseover', onPackMouseOverDefault);
         this.removeEventListener('mouseout', onPackMouseOutDefault);
         this.addEventListener('mouseout', onPackMouseOutSelected);
-        this.addEventListener('mouseover', onPackMouseOverSelected)
+        this.addEventListener('mouseover', onPackMouseOverSelected);
       }
       this.classList.toggle('js-selected');
     }
